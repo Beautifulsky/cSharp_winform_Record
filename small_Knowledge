@@ -1,2 +1,3 @@
 formName.ShowDialog 焦点会自动移动到新窗体上，当关闭页面才可回到原窗口
 Screen.PrimaryScreen.WorkingArea.Height;当前显示器的高度，可赋值给软件的初始高度
+combox绑定数据源，可以用枚举一次性绑定。cbx.DataSource = System.Enum.GetNames(typeof(枚举名称));
