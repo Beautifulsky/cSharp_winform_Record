@@ -3,3 +3,64 @@ Screen.PrimaryScreen.WorkingArea.Height;当前显示器的高度，可赋值给�
 combox
       枚举绑定数据源，可以用枚举一次性绑定。cbx.DataSource = System.Enum.GetNames(typeof(枚举名称));
       cbx转变为枚举：cmb.Text.StringToEnum<EnumType>()
+      触发事件：cbxName.SelectedIndexChanged += new EventHandler(oncbxSelectIndexChanges)
+获取屏幕大小 Screen.PrimaryScreen.WorkingArea.Width/Height;
+form.ShowDialog()显示窗口  openFileDialog.ShowDialog() == DialogResult.OK DialogResult返回button点击结果;
+自定义控件    控件类型 控件名 = 控件 as 控件类型;
+登陆界面自定义
+       将FormBoderStyle 设置为none 则无边框，再添加背景图片
+       再添加两个label（各三个事件，点击，离开，鼠标滑过）：
+            缩小：
+              private void lblShort_Click(object sender, EventArgs e)
+              {
+                  WindowState = FormWindowState.Minimized;
+              }
+               private void lblShort_MouseLeave(object sender, EventArgs e)
+              {
+                 lblShort.ForeColor = Color.DimGray;
+                 lblShort.BackColor = Color.Transparent;
+              }
+              private void lblShort_MouseMove(object sender, MouseEventArgs e)
+             {
+                  lblShort.ForeColor = Color.White;
+                  lblShort.BackColor = Color.FromArgb(30, 0, 0, 0);
+            }
+            关闭：
+            private void lblClose_Click(object sender, EventArgs e)
+            {
+                   this.Close();
+            }
+             private void lblClose_MouseLeave(object sender, EventArgs e)
+            {
+                  lblClose.BackColor = Color.Transparent;
+            }
+
+           private void lblClose_MouseMove(object sender, MouseEventArgs e)
+             {
+                    lblClose.BackColor = Color.Red;
+             }
+     移动登陆界面
+           private void LogonIn_MouseDown(object sender, MouseEventArgs e)
+             {
+                  if (e.Button == MouseButtons.Left)
+             {
+                   _mousePoint.X = e.X;
+                   _mousePoint.Y = e.Y;
+             }
+             }
+
+        private void LogonIn_MouseUp(object sender, MouseEventArgs e)
+            {
+                  isMouseDown = false;
+            }
+
+        private void LogonIn_MouseMove(object sender, MouseEventArgs e)
+            {
+                   if (e.Button == MouseButtons.Left)
+            {
+                   Top = MousePosition.Y - _mousePoint.Y;
+                  Left = MousePosition.X - _mousePoint.X;
+            }
+            }
+     登陆成功后关闭登陆界面，在ShowDialog之前设置visible= false；
+DataGridView，可以直接Datasource = 对象来绑定数据源
