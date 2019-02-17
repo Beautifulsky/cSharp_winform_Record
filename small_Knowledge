@@ -64,3 +64,4 @@ form.ShowDialog()显示窗口  openFileDialog.ShowDialog() == DialogResult.OK Di
             }
      登陆成功后关闭登陆界面，在ShowDialog之前设置visible= false；
 DataGridView，可以直接Datasource = 对象来绑定数据源
+注意：如果不是主ui线程，那个一个线程不能调用不是这个线程创建的控件，否则会报System.InvalidOperationException的错误
