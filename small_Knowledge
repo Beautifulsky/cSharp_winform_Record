@@ -65,3 +65,15 @@ form.ShowDialog()显示窗口  openFileDialog.ShowDialog() == DialogResult.OK Di
      登陆成功后关闭登陆界面，在ShowDialog之前设置visible= false；
 DataGridView，可以直接Datasource = 对象来绑定数据源
 注意：如果不是主ui线程，那个一个线程不能调用不是这个线程创建的控件，否则会报System.InvalidOperationException的错误
+进度条的创建：https://www.cnblogs.com/sparkdev/p/5906272.html
+https://www.cnblogs.com/zhaoshujie/p/9634136.html
+https://www.cnblogs.com/zhangruisoldier/p/4778145.html
+
+progressBar1.Visible = true;//设置进度条显示
+            progressBar1.Maximum = fileNames.Count;//设置最大值
+            progressBar1.Value = 0;//设置当前值
+            progressBar1.Step = 1;//设置没次增长多少
+ 
+ 
+ 
+            progressBar1.Value += progressBar1.Step; //让进度条增加一次
